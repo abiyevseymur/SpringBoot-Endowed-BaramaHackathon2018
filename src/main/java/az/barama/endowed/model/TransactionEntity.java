@@ -10,50 +10,50 @@ public class TransactionEntity {
     @Id
     private Integer id;
 
-    private Integer contact_id;
+    private Integer contract_id;
 
     private Integer customer_id;
 
-    private Integer transaction_ammount;
+    private Integer transaction_amount;
 
     public TransactionEntity() { }
 
-    public TransactionEntity(Integer id, Integer contact_id, Integer customer_id, Integer transaction_ammount) {
+    public TransactionEntity(Integer id, Integer contract_id, Integer customer_id, Integer transaction_amount) {
         this.id = id;
-        this.contact_id = contact_id;
+        this.contract_id = contract_id;
         this.customer_id = customer_id;
-        this.transaction_ammount = transaction_ammount;
+        this.transaction_amount = transaction_amount;
     }
 
     public void setId(Integer id) {
         this.id = id;
     }
 
-    public void setContact_id(Integer contact_id) {
-        this.contact_id = contact_id;
+    public void setContract_id(Integer contract_id) {
+        this.contract_id = contract_id;
     }
 
     public void setCustomer_id(Integer customer_id) {
         this.customer_id = customer_id;
     }
 
-    public void setTransaction_ammount(Integer transaction_ammount) {
-        this.transaction_ammount = transaction_ammount;
+    public void setTransaction_amount(Integer transaction_amount) {
+        this.transaction_amount = transaction_amount;
     }
 
     public Integer getId() {
         return id;
     }
 
-    public Integer getContact_id() {
-        return contact_id;
+    public Integer getContract_id() {
+        return contract_id;
     }
 
     public Integer getCustomer_id() {
         return customer_id;
     }
 
-    public Integer getTransaction_ammount() {
-        return transaction_ammount;
+    public Integer getTransaction_amount() {
+        return transaction_amount;
     }
 }
