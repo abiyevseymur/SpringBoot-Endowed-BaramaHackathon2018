@@ -1,21 +1,25 @@
-package az.barama.endowed.service;
+package az.barama.endowed.controller;
 
-import az.barama.endowed.dao.TransactionRepository;
 import az.barama.endowed.model.TransactionEntity;
-import org.springframework.stereotype.Service;
+import az.barama.endowed.service.TransactionService;
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonView;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
+@RestController
+public class TransactionController {
+    private final TransactionService transactionService;
 
-@Service
-public class TransactionService {
-    private final TransactionRepository repository;
-
-    public TransactionService(TransactionRepository repository) {
-        this.repository = repository;
+    public TransactionController(TransactionService transactionService) {
+        this.transactionService = transactionService;
     }
 
-    public Optional<TransactionEntity> getTransactions(int contractId){
-
-        return repository.findById(contractId);
+    
+    public TransactionEntity newTransaction(@JsonView TransactionEntity newTransaction){
+        return transactionService.save(newTransaction);
+    }
+    @GetMapping("/get_transaction/{id}")
+    public TransactionEntity getTransaction(@PathVariable int id) {
+        return transactionService.getTransactions(id);
     }
 }
